@@ -1,0 +1,36 @@
+public class Solution {
+        int ans=0;
+
+    public int solve(TreeNode A) {
+
+        long sum=treeSum(A);
+
+        if(sum%2==1) return 0;
+
+        preorder(A,sum/2);
+
+        return ans;
+
+    }
+
+    long treeSum(TreeNode a){
+
+        if(a==null) return 0;
+
+        return treeSum(a.left) + treeSum(a.right)+a.val;
+
+    }
+
+    void preorder(TreeNode a, long x){
+
+        if(a==null) return;
+
+        if(treeSum(a)==x) ans=1;
+
+        preorder(a.left,x);
+
+        preorder(a.right,x);
+
+    }
+    
+}
