@@ -1,0 +1,10 @@
+public class Solution {
+    public int hasPathSum(TreeNode A, int B) {
+        if(A==null) return 0;
+        if(A.left==null && A.right==null && B-A.val==0) return 1;
+        int ansL = hasPathSum(A.left, B-A.val);
+        int ansR = hasPathSum(A.right, B-A.val);
+        if(ansL==1 || ansR==1) return 1;
+        return 0;
+    }
+}
