@@ -1,0 +1,11 @@
+public class Solution {
+    ArrayList<Integer> ans=new ArrayList<>();
+    public ArrayList<Integer> preorderTraversal(TreeNode A) {
+        if(A==null)
+            return ans;
+        ans.add(A.val);
+        preorderTraversal(A.left);
+        preorderTraversal(A.right);
+        return ans;
+    }
+}
